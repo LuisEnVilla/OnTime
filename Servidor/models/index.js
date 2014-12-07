@@ -8,11 +8,11 @@ mongoose.connect('mongodb://localhost/Cinemapp',function(err, res) {
 global.db = {
 mongoose: mongoose,
 //models
-coords : require('./modelsCoords')(mongoose)
-unidad : require('./modelsUnidad')(mongoose)
-queja : require('./modelsQueja')(mongoose)
-catalogoQuejas : require('./modelsCatalogoQuejas')(mongoose)
-paradas : require('./modelsParadas')(mongoose)
+coordis : require('./modelsCoords')(mongoose),
+unidad : require('./modelsUnidad')(mongoose),
+queja : require('./modelsQueja')(mongoose),
+catalogoQuejas : require('./modelsCatalogoQuejas')(mongoose),
+paradas : require('./modelsParadas')(mongoose),
 ruta : require('./modelsRuta')(mongoose)
 // agregar más modelos aquí en caso de haberlos
 };
