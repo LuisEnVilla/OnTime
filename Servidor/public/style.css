@@ -1,15 +1,26 @@
 body {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 #map {
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
 }
 
-#comboRoutes {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.abs {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+#comboRoute {
+	right: 50px;
 }

@@ -4,9 +4,10 @@ block content
 	//
 		include ./header
 	div#map
-	select#comboRoute
+	select#comboRoute.abs
 		option(val="47") Ruta 47
 		option(val="50") Ruta 50
+	input.form-control.abs(type="button") Check
 	script(src="jquery-2.1.1.min.js")
 	script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
 	script(src="gmaps.js")
