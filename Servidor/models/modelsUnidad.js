@@ -13,5 +13,5 @@ module.exports = function(mongoose) {
     ruta:String
   });
   SchemaUnidad.set('collection','Unidad');
-  return mongoose.model('coords', SchemaUnidad);
+  return mongoose.model('unidad', SchemaUnidad);
 }
