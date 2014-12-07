@@ -8,7 +8,7 @@ router.get('/ruta/:ruta', function(req, res) {
 	    	message: err.message,
 	        error: {}});
 	    else {
-	    	res.send({coords : coordenadas});
+	    	res.send(coordenadas);
 	    }
 
 	});
