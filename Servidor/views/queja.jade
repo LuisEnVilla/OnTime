@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-md-6.col-md-offset-3
+				form
+					input.form-control(type="text" name="nombre" placeholder="Nombre")
+					input.form-control(type="email" name="mail" placeholder="Email")
+					select.form-control
+						option(value="Seleccionar queja...")
+						for queja in quejas
+							option(value="#{queja.descripcion}") #{queja.nombrecorto}
+					input(type="text" name="queja" placeholder="Queja").form-control
+					input.form-control(type="text" name="placa" placeholder="Placa")
+					input(type="submit").btn.btn-primary Quejarse
