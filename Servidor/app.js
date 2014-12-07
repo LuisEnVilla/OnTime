@@ -7,18 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./controllers/index');
-var insert = require('./controllers/insert');
-var log = require('./controllers/logeo');
-var top = require('./controllers/top');
-var profile = require('./controllers/profile');
-var compare = require('./controllers/compare');
-var Funcionarios = require('./controllers/funcionarios');
-var seguir = require('./controllers/agregarSeguir');
-var aclaracion = require('./controllers/aclaraciones');
 var api = require('./controllers/api');
-var alta = require('./controllers/altaviaje');
-var search = require('./controllers/search');
-var dashboard = require('./controllers/dashboard');
 var app = express();
 // Configuration
 
@@ -36,18 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Controllers
 app.use('/', index);
-app.use('/log',log);
-app.use('/top', top);
-app.use('/profile', profile);
-app.use('/funcionario',Funcionarios);
-app.use('/compare', compare);
-app.use('/insert', insert);
-app.use('/seguir',seguir);
-app.use('/aclarar',aclaracion);
 app.use('/api',api);
-app.use('/alta',alta);
-app.use('/search', search);
-app.use('/dashboard',dashboard)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
