@@ -1,4 +1,4 @@
-var map;
+var map, val, lat, lng;
 
 function initialize() {
   var mapOptions = {
@@ -16,7 +16,7 @@ function initialize() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        content: 'Actualmente estás aquí'
       });
 
       map.setCenter(pos);
@@ -47,8 +47,8 @@ function handleNoGeolocation(errorFlag) {
 }
 
 function updateMarkers(route) {
-	setAllMap(null);
-	var url = 'http://ontime.jit.su/ruta/' + route;
+	//setAllMap(null);
+	var url = 'http://localhost/api/ruta/' + route;
 	function success(json){
 		for (var i = 0; i < json.length; i++) {
 			var pos = new google.maps.LatLng(json[i].lat, json[i].lng);
@@ -68,9 +68,32 @@ function updateMarkers(route) {
 
 }
 
-$('#routeCombo').change(function(event) {
-	var val = $('#routeCombo').find('option:selected').val();
-	updateMarkers(val);
+$('#comboRoute').change(function(event) {
+	val = $('#comboRoute').find('option:selected').val();
+  console.log(val)
+  updateMarkers(val);
+});
+
+$('#check').click(function(event) {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+       lat = position.coords.latitude;
+       lng = position.coords.longitude;
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+  $.ajax({
+type: "POST",
+url: 'http://localhost/api/ruta/' + val,
+data: {lat: lat, lng : lng, date: Date.now()},
+success: function(data, textStatus, xhr) {
+    console.log('success post');
+  }
+});
 });
 
 google.maps.event.addDomListener(window, 'load', initialize);

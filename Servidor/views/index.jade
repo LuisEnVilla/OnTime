@@ -1,13 +1,13 @@
 extends layout
 
 block content
-	//
-		include ./header
+	include ./header
 	div#map
-	select#comboRoute.abs
-		option(val="47") Ruta 47
-		option(val="50") Ruta 50
-	input.form-control.abs(type="button") Check
+	select#comboRoute.abs.form-control
+		option(value="47") Ruta 47
+		option(value="50") Ruta 50
+		option(value="50") Ruta 54
+	input.btn.btn-primary.form-control.abs#check(type="button" value="Check")
 	script(src="jquery-2.1.1.min.js")
 	script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
 	script(src="gmaps.js")

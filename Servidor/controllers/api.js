@@ -4,11 +4,11 @@ var router = express.Router();
 /* GET home page. */
 router.get('/ruta/:ruta', function(req, res) {
 	db.coordis.find({ruta : req.params.ruta },function (err, coordenadas){
+	   res.send([{lat: 41.40338,lng: 21.40338, date:Date.now()}]);
 		if (err) res.render('error', {
 	    	message: err.message,
 	        error: {}});
 	    else {
-	    	res.send(coordenadas);
 	    }
 
 	});
@@ -17,11 +17,15 @@ router.get('/ruta/:ruta', function(req, res) {
 router.post('/ruta/:ruta', function(req, res) {
 	var coordenada = new db.coordis({
 		ruta: req.params.ruta,
-	    lat: req.body.telefono,
-	    lng: req.body.telefono,
-	    date:req.body.telefono
+	    lat: req.body.lat,
+	    lng: req.body.lng,
+	    date:req.body.date
 		});
-		mensajes.save();
+		//mensajes.save();
+		console.log(coordenada);
+		res.send(coordenada);
 });
+
+
 
 module.exports = router;

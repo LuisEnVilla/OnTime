@@ -17,10 +17,28 @@ body {
 
 .abs {
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	bottom: 20px;
+	right: 20px;
+	width: auto;
 }
 
 #comboRoute {
-	right: 50px;
+	right: 110px;
+}
+
+#header {
+	background-color: rgb(52,152,219);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 2;
+}
+
+#header img {
+	height: 75px;
+}
+
+#check {
+	width: auto;
 }
